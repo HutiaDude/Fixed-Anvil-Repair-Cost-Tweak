@@ -10,8 +10,8 @@ import java.util.List;
 public class ConfigHandler extends DuskConfig {
 	public static HashMap<String, List<String>> configMetaData = new HashMap<String, List<String>>();
 
-	@Entry(min = 0, max = 100) public static int repairCostLevelAmount = 3;
-	@Entry(min = 0, max = 64) public static int repairCostMaterialAmount = 1;
+	@Entry(min = -1, max = 100) public static int repairCostLevelAmount = 3;
+	@Entry(min = -1, max = 64) public static int repairCostMaterialAmount = 1;
 	@Entry(min = 0, max = 1.0) public static double percentRepairedPerAction = 0.3333;
 
 	public static void initConfig() {
