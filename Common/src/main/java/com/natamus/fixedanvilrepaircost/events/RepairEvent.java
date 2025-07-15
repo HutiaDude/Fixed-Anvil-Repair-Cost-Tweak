@@ -10,8 +10,8 @@ import oshi.util.tuples.Triplet;
 
 public class RepairEvent {
 	public static Triplet<Integer, Integer, ItemStack> onRepairEvent(AnvilMenu anvilmenu, ItemStack leftstack, ItemStack rightstack, ItemStack outputstack, String itemName, int baseCost, Player player) {
-		int newlevelcost = -1;
-		int newmaterialcost = -1;
+		int newlevelcost = -2;
+		int newmaterialcost = -2;
 		ItemStack newoutput = null;
 		
 		if (!rightstack.getItem().equals(Items.ENCHANTED_BOOK) && !leftstack.getItem().equals(rightstack.getItem())) {
@@ -23,11 +23,11 @@ public class RepairEvent {
 			int levelcost = ConfigHandler.repairCostLevelAmount;
 			int materialcost = ConfigHandler.repairCostMaterialAmount;
 			
-			if (levelcost >= 1 || materialcost >= 1) {
-				if (levelcost >= 1) {
+			if (levelcost >= 0 || materialcost >= 0) {
+				if (levelcost >= 0) {
 					newlevelcost = levelcost;
 				}
-				if (materialcost >= 1) {
+				if (materialcost >= 0) {
 					newmaterialcost = materialcost;
 					
 					if (materialcost > rightstack.getCount()) {
